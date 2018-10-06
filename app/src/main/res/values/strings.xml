@@ -3,4 +3,7 @@
     <string name="title_home">Home</string>
     <string name="exe">Execute</string>
     <string name="title_user">About</string>
+    <string name="learn">Learn the Concepts that drive design thinking.</string>
+    <string name="submit">Submit your Project ideas around user innovations.</string>
+    <string name="identify">Identify Customer needs and User groups.</string>
 </resources>

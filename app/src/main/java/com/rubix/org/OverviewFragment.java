@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -21,6 +22,7 @@ public class OverviewFragment extends Fragment {
     CardView learn,sub,cust;
 LinearLayout ll1,ll2,ll3;
 ImageView im1,im2,im3;
+TextView t1;
 
     private OnFragmentInteractionListener listener;
     public static OverviewFragment newInstance() {
@@ -57,14 +59,17 @@ ImageView im1,im2,im3;
         im3=view.findViewById(R.id.ar3);
 
 
+        t1=view.findViewById(R.id.exp);
+
         learn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 setColors(1);
-                ll1.setBackgroundColor(getResources().getColor(R.color.cyan));
+                ll1.setBackgroundColor(getResources().getColor(R.color.black));
                 im1.setVisibility(View.VISIBLE);
+                t1.setText(getResources().getText(R.string.learn));
             }
         });
 
@@ -75,8 +80,9 @@ ImageView im1,im2,im3;
             public void onClick(View v)
             {
                 setColors(2);
-                ll2.setBackgroundColor(getResources().getColor(R.color.cyan));
+                ll2.setBackgroundColor(getResources().getColor(R.color.black));
                 im2.setVisibility(View.VISIBLE);
+                t1.setText(getResources().getText(R.string.submit));
             }
         });
 
@@ -87,8 +93,9 @@ ImageView im1,im2,im3;
             public void onClick(View v)
             {
                 setColors(3);
-                ll3.setBackgroundColor(getResources().getColor(R.color.cyan));
+                ll3.setBackgroundColor(getResources().getColor(R.color.black));
                 im3.setVisibility(View.VISIBLE);
+                t1.setText(getResources().getText(R.string.identify));
             }
         });
 
