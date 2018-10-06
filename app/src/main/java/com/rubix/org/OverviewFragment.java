@@ -14,14 +14,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 
 public class OverviewFragment extends Fragment {
 
     CardView learn,sub,cust;
 LinearLayout ll1,ll2,ll3;
-ImageView im1,im2,im3;
+ImageView im1,im2,im3,img1,img2,img3;
 TextView t1;
 
     private OnFragmentInteractionListener listener;
@@ -59,6 +59,11 @@ TextView t1;
         im3=view.findViewById(R.id.ar3);
 
 
+        img1=view.findViewById(R.id.img1);
+        img2=view.findViewById(R.id.img2);
+        img3=view.findViewById(R.id.img3);
+
+
         t1=view.findViewById(R.id.exp);
 
         learn.setOnClickListener(new View.OnClickListener()
@@ -67,7 +72,7 @@ TextView t1;
             public void onClick(View v)
             {
                 setColors(1);
-                ll1.setBackgroundColor(getResources().getColor(R.color.black));
+                img1.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundgreen));
                 im1.setVisibility(View.VISIBLE);
                 t1.setText(getResources().getText(R.string.learn));
             }
@@ -80,7 +85,7 @@ TextView t1;
             public void onClick(View v)
             {
                 setColors(2);
-                ll2.setBackgroundColor(getResources().getColor(R.color.black));
+                img2.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundgreen));
                 im2.setVisibility(View.VISIBLE);
                 t1.setText(getResources().getText(R.string.submit));
             }
@@ -93,7 +98,7 @@ TextView t1;
             public void onClick(View v)
             {
                 setColors(3);
-                ll3.setBackgroundColor(getResources().getColor(R.color.black));
+                img3.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundgreen));
                 im3.setVisibility(View.VISIBLE);
                 t1.setText(getResources().getText(R.string.identify));
             }
@@ -141,15 +146,15 @@ TextView t1;
     public void setColors(int pos){
 
         if(pos!=1) {
-            ll1.setBackgroundColor(getResources().getColor(R.color.white));
+            img1.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundblc));
             im1.setVisibility(View.INVISIBLE);
         }
         if(pos!=2) {
-            ll2.setBackgroundColor(getResources().getColor(R.color.white));
+            img2.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundblc));
             im2.setVisibility(View.INVISIBLE);
         }
         if(pos!=3) {
-            ll3.setBackgroundColor(getResources().getColor(R.color.white));
+            img3.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundblc));
             im3.setVisibility(View.INVISIBLE);
         }
 
