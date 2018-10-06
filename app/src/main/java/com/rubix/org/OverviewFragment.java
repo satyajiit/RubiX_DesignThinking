@@ -56,9 +56,9 @@ LinearLayout ll1,ll2,ll3;
             @Override
             public void onClick(View v)
             {
-                ll1.setBackgroundColor(getResources().getColor(R.color.black));
-                ll2.setBackgroundColor(getResources().getColor(R.color.white));
-                ll3.setBackgroundColor(getResources().getColor(R.color.white));
+                setColors(1);
+                ll1.setBackgroundColor(getResources().getColor(R.color.cyan));
+
             }
         });
 
@@ -68,9 +68,9 @@ LinearLayout ll1,ll2,ll3;
             @Override
             public void onClick(View v)
             {
-                ll2.setBackgroundColor(getResources().getColor(R.color.black));
-                ll3.setBackgroundColor(getResources().getColor(R.color.white));
-                ll1.setBackgroundColor(getResources().getColor(R.color.white));
+                setColors(2);
+                ll2.setBackgroundColor(getResources().getColor(R.color.cyan));
+
             }
         });
 
@@ -80,9 +80,9 @@ LinearLayout ll1,ll2,ll3;
             @Override
             public void onClick(View v)
             {
-                ll3.setBackgroundColor(getResources().getColor(R.color.black));
-                ll1.setBackgroundColor(getResources().getColor(R.color.white));
-                ll2.setBackgroundColor(getResources().getColor(R.color.white));
+                setColors(3);
+                ll3.setBackgroundColor(getResources().getColor(R.color.cyan));
+
             }
         });
 
@@ -125,5 +125,15 @@ LinearLayout ll1,ll2,ll3;
     public interface OnFragmentInteractionListener {
     }
 
+    public void setColors(int pos){
+
+        if(pos!=1)
+             ll1.setBackgroundColor(getResources().getColor(R.color.white));
+        if(pos!=2)
+            ll2.setBackgroundColor(getResources().getColor(R.color.white));
+        if(pos!=3)
+            ll3.setBackgroundColor(getResources().getColor(R.color.white));
+
+    }
 
 }
