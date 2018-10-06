@@ -11,6 +11,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class OverviewFragment extends Fragment {
 
     CardView learn,sub,cust;
 LinearLayout ll1,ll2,ll3;
+ImageView im1,im2,im3;
 
     private OnFragmentInteractionListener listener;
     public static OverviewFragment newInstance() {
@@ -50,6 +52,10 @@ LinearLayout ll1,ll2,ll3;
         ll2=view.findViewById(R.id.ll2);
         ll3=view.findViewById(R.id.ll3);
 
+        im1=view.findViewById(R.id.ar1);
+        im2=view.findViewById(R.id.ar2);
+        im3=view.findViewById(R.id.ar3);
+
 
         learn.setOnClickListener(new View.OnClickListener()
         {
@@ -58,7 +64,7 @@ LinearLayout ll1,ll2,ll3;
             {
                 setColors(1);
                 ll1.setBackgroundColor(getResources().getColor(R.color.cyan));
-
+                im1.setVisibility(View.VISIBLE);
             }
         });
 
@@ -70,7 +76,7 @@ LinearLayout ll1,ll2,ll3;
             {
                 setColors(2);
                 ll2.setBackgroundColor(getResources().getColor(R.color.cyan));
-
+                im2.setVisibility(View.VISIBLE);
             }
         });
 
@@ -82,7 +88,7 @@ LinearLayout ll1,ll2,ll3;
             {
                 setColors(3);
                 ll3.setBackgroundColor(getResources().getColor(R.color.cyan));
-
+                im3.setVisibility(View.VISIBLE);
             }
         });
 
@@ -127,12 +133,18 @@ LinearLayout ll1,ll2,ll3;
 
     public void setColors(int pos){
 
-        if(pos!=1)
-             ll1.setBackgroundColor(getResources().getColor(R.color.white));
-        if(pos!=2)
+        if(pos!=1) {
+            ll1.setBackgroundColor(getResources().getColor(R.color.white));
+            im1.setVisibility(View.INVISIBLE);
+        }
+        if(pos!=2) {
             ll2.setBackgroundColor(getResources().getColor(R.color.white));
-        if(pos!=3)
+            im2.setVisibility(View.INVISIBLE);
+        }
+        if(pos!=3) {
             ll3.setBackgroundColor(getResources().getColor(R.color.white));
+            im3.setVisibility(View.INVISIBLE);
+        }
 
     }
 
