@@ -288,7 +288,17 @@
         app:layout_constraintCircle="@+id/imgCir"
         />
 
-
+<Button
+    android:id="@+id/simulate"
+    android:layout_width="110dp"
+    app:layout_constraintCircleAngle="180"
+    app:layout_constraintCircle="@+id/imgCir"
+    app:layout_constraintCircleRadius="205dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btnb"
+    android:text="SIMULATE"
+    android:elevation="5dp"
+    android:theme="@style/AppTheme.Button"/>
 
 </android.support.constraint.ConstraintLayout>
 

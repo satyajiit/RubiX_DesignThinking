@@ -3,6 +3,7 @@
     <solid android:color="@color/white"/>
     <stroke
         android:width="2dp"
-
+        android:dashWidth="2dp"
+        android:dashGap="3dp"
         android:color="#4b0bed" />
 </shape>

@@ -6,4 +6,10 @@
     <string name="learn">Learn the Concepts that drive design thinking.</string>
     <string name="submit">Submit your Project ideas around user innovations.</string>
     <string name="identify">Identify Customer needs and User groups.</string>
+    <string name="four">Translate needs into product specifications.</string>
+    <string name="five">Create a prototype.</string>
+    <string name="six">Build out product architecture.</string>
+    <string name="seven">Analyze the economics of the innovation. </string>
+    <string name="eight">Choose the right development process.</string>
+    <string name="nine">Present your final ideas, get real-time feedback.</string>
 </resources>
