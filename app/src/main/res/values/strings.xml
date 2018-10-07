@@ -12,4 +12,18 @@
     <string name="seven">Analyze the economics of the innovation. </string>
     <string name="eight">Choose the right development process.</string>
     <string name="nine">Present your final ideas, get real-time feedback.</string>
+
+    <string name="week1">USER NEED \nINDENTIFICATION (EMPATHY)</string>
+    <string name="week1s">The important element as well as first stage of design thinking to gain an empathetic understanding of people to solve the problem. </string>
+
+    <string name="week2">DEFINE, IDEATION, AND PROTOTYPING</string>
+
+    <string name="week2s">Define:- Put information together which created during emphathise stage.\nIdeation:- Get ready to start generating ideas.\nPrototyping:- The experimental phase to identify the best possible solution.</string>
+
+    <string name="week3">TESTING PROTOTYPES AND FEEDBACK FROM USERS</string>
+    <string name="week3s">The final stage of the five stage model but in an iterative process.</string>
+
+
+
+
 </resources>

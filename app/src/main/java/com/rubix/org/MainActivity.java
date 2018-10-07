@@ -1,5 +1,6 @@
 package com.rubix.org;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,11 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,20 +31,41 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
     private Toolbar toolbar;
     LinearLayout ll1, ll2, ll3;
     BottomNavigationView navigation;
+    Animation animation;
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
 
         FontChangeCrawler fontChanger = new FontChangeCrawler(getAssets(), "fonts/dis.ttf");
         fontChanger.replaceFonts((ViewGroup) this.findViewById(android.R.id.content));
+
+        animation = AnimationUtils.loadAnimation(this,
+                R.anim.anim_rotate_and_scale);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.menu, menu);
+
+
         return super.onCreateOptionsMenu(menu);
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.icon:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +114,9 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
             return true;
         }
     };
+
+
+
 
 
     boolean doubleBackToExitPressedOnce = false;

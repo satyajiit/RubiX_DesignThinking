@@ -42,5 +42,7 @@
         <item name="colorButtonNormal">#304ffe</item>
         <item name="android:textColor">#ffffff</item>
     </style>
-
+    <style name="pro" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/prototype</item>
+    </style>
 </resources>

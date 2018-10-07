@@ -4,6 +4,7 @@ package com.rubix.org;
 
 import android.content.Context;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class OverviewFragment extends Fragment {
 
@@ -32,13 +37,15 @@ public class OverviewFragment extends Fragment {
 LinearLayout ll1,ll2,ll3;
 ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img11,img22,img33,img44,img55,img66,img77,img88,img99;
 TextView exp;
-Button sim;
+Button sim,next;
 View v;
-boolean flag=true;
-Thread loopThread;
+
+
+
 int position=0;
-int exit=0;
-     Animation animation,animationFade,animationOut;
+
+    Timer timerAsync;
+     Animation animation,animationFade,animationOut,animationFadeIn,TRA;
 
     private OnFragmentInteractionListener listener;
     public static OverviewFragment newInstance() {
@@ -69,6 +76,10 @@ int exit=0;
 
         sim=view.findViewById(R.id.simulate);
 
+        next=view.findViewById(R.id.next);
+
+
+
         img1=view.findViewById(R.id.img1);
         img2=view.findViewById(R.id.img2);
         img3=view.findViewById(R.id.img3);
@@ -79,7 +90,7 @@ int exit=0;
         img8=view.findViewById(R.id.img8);
         img9=view.findViewById(R.id.img9);
 
-        if(flag) sim.setVisibility(View.INVISIBLE);
+         sim.setVisibility(View.INVISIBLE);
 
         img11=view.findViewById(R.id.img11);
         img22=view.findViewById(R.id.img22);
@@ -92,27 +103,31 @@ int exit=0;
         img99=view.findViewById(R.id.img99);
 
 
+        TRA = AnimationUtils.loadAnimation(getActivity(),
+                R.anim.anim_translate_in); //translate in
+
         animation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.anim_rotate_and_scale);
 
-
+        animationFadeIn = AnimationUtils.loadAnimation(getActivity(),
+                R.anim.fade_in); //for button
 
         animationFade = AnimationUtils.loadAnimation(getActivity(),
-                R.anim.fade_in);
+                R.anim.fade_in);  //for text nessage
 // Start animating the image
         animationOut = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.fade_out);
 
         img1.startAnimation(animation);
 
-
+        next.startAnimation(TRA);
 
 
 
         cir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                flag=false;
+                timerAsync.cancel();
 
                 ++position;
 
@@ -121,7 +136,7 @@ int exit=0;
 
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                    sim.startAnimation(animationFadeIn);
                 }
 
 
@@ -131,11 +146,29 @@ int exit=0;
         sim.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                flag=true;
 
 
-                --position;
                 loop();
+
+
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+
+                timerAsync.cancel();
+                ++position;
+                set();
+                setColors(position);
+
+                if(sim.getVisibility()!=View.VISIBLE){
+                    sim.setVisibility(View.VISIBLE);
+                    sim.startAnimation(animationFadeIn);
+                }
+
+
 
 
             }
@@ -143,18 +176,17 @@ int exit=0;
 
 
 
-
 img1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-               flag=false;
+                timerAsync.cancel();
 
                 position=1;
                 set();
                 setColors(position);
               if(sim.getVisibility()!=View.VISIBLE){
                 sim.setVisibility(View.VISIBLE);
-              sim.startAnimation(animationFade);
+              sim.startAnimation(animationFadeIn);
               }
 
             }
@@ -162,14 +194,14 @@ img1.setOnClickListener(new View.OnClickListener() {
 
         img2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                flag=false;
+                timerAsync.cancel();
 
                 position=2;
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                    sim.startAnimation(animationFadeIn);
                 }
 
 
@@ -178,14 +210,14 @@ img1.setOnClickListener(new View.OnClickListener() {
 
         img3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                flag=false;
+                timerAsync.cancel();
 
                 position=3;
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                    sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -193,13 +225,13 @@ img1.setOnClickListener(new View.OnClickListener() {
 
         img4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                flag=false;
+                timerAsync.cancel();
                 position=4;
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                    sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -208,12 +240,12 @@ img1.setOnClickListener(new View.OnClickListener() {
        img5.setOnClickListener(new View.OnClickListener() {
            public void onClick(View v) {
                position=5;
-               flag=false;
+               timerAsync.cancel();
                set();
                setColors(position);
                if(sim.getVisibility()!=View.VISIBLE){
                    sim.setVisibility(View.VISIBLE);
-                   sim.startAnimation(animationFade);
+                   sim.startAnimation(animationFadeIn);
                }
 
            }
@@ -222,12 +254,12 @@ img1.setOnClickListener(new View.OnClickListener() {
         img6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 position=6;
-                flag=false;
+                timerAsync.cancel();
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
-                    sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                   sim.setVisibility(View.VISIBLE);
+                   sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -236,12 +268,12 @@ img1.setOnClickListener(new View.OnClickListener() {
         img7.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 position=7;
-                flag=false;
+                timerAsync.cancel();
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
-                    sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                   sim.setVisibility(View.VISIBLE);
+                    sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -250,12 +282,12 @@ img1.setOnClickListener(new View.OnClickListener() {
         img8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 position=8;
-                flag=false;
+                timerAsync.cancel();
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    sim.startAnimation(animationFade);
+                    sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -263,14 +295,14 @@ img1.setOnClickListener(new View.OnClickListener() {
 
         img9.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                flag=false;
+                timerAsync.cancel();
                 position=9;
                 set();
                 setColors(position);
                 if(sim.getVisibility()!=View.VISIBLE){
                     sim.setVisibility(View.VISIBLE);
-                    if(sim.getAnimation()!=null||sim.getAnimation()!=animationFade||sim.getAnimation()!=animationOut)
-                    sim.startAnimation(animationFade);
+                    if(sim.getAnimation()!=null||sim.getAnimation()!=animationFadeIn||sim.getAnimation()!=animationOut)
+                    sim.startAnimation(animationFadeIn);
                 }
 
             }
@@ -319,7 +351,7 @@ loop();
     public void onDetach() {
         super.onDetach();
         listener = null;
-        flag=false;
+        timerAsync.cancel();
     }
 
     public interface OnFragmentInteractionListener {
@@ -478,21 +510,22 @@ public void set(){
 
 }
 
-
+/*
 public void loop(){
         loopThread=new Thread()
         {       public void run() {
             while (true) {
-                //
+
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
                       if(sim.getVisibility()==View.VISIBLE)  {
                           sim.setAnimation(null);
-                          sim.setVisibility(View.INVISIBLE);
+
 
                       }
+                      sim.setVisibility(View.INVISIBLE);
                         ++position;
                         setColors(position);
                         set();
@@ -501,7 +534,7 @@ public void loop(){
                     }
                 });
                 try {
-                    Thread.sleep(7000);
+                    Thread.sleep(5000);
                     if(!flag) return;
 
                 } catch (Exception e) {
@@ -513,11 +546,33 @@ public void loop(){
         };
         loopThread.start();
 }
+*/
+
+public void loop(){
+     timerAsync = new Timer();
+   TimerTask timerTaskAsync = new TimerTask() {
+        @Override
+        public void run() {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override public void run() {
+                    Log.i("Background Perform",
+                            "-------> Text from Background Perform");
+                    if(sim.getVisibility()==View.VISIBLE)  {
+                        sim.startAnimation(animationOut);
 
 
+                    }
+                    sim.setVisibility(View.INVISIBLE);
+                    ++position;
+                    setColors(position);
+                    set();
+                }
+            });
+        }
+    };
+    timerAsync.schedule(timerTaskAsync, 0, 4000);
 
-
-
+}
 
 
 
