@@ -128,8 +128,8 @@ int position=1;
             public void onClick(View v) {
 
 
-
-                ++position;
+                timerAsync.cancel();
+                loop();
 
                 set();
                 setColors(position);
