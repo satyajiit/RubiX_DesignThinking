@@ -288,28 +288,18 @@
         app:layout_constraintCircle="@+id/imgCir"
         />
 
-<Button
-    android:id="@+id/simulate"
-    android:layout_width="110dp"
-    app:layout_constraintCircleAngle="210"
-    app:layout_constraintCircle="@+id/imgCir"
-    app:layout_constraintCircleRadius="240dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/btnb"
-    android:text="SIMULATE"
-    android:elevation="5dp"
-    android:theme="@style/AppTheme.Button"/>
+
 
     <Button
         android:id="@+id/next"
         android:layout_width="110dp"
-        app:layout_constraintCircleAngle="150"
+        app:layout_constraintCircleAngle="180"
         app:layout_constraintCircle="@+id/imgCir"
-        app:layout_constraintCircleRadius="240dp"
+        app:layout_constraintCircleRadius="208dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btnb"
         android:text="NEXT"
-        android:elevation="5dp"
+        android:elevation="10dp"
         android:theme="@style/AppTheme.Button"/>
 
 

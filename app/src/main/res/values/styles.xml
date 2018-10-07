@@ -45,4 +45,12 @@
     <style name="pro" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:fontFamily">@font/prototype</item>
     </style>
+
+    <style name="regis" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">Taking You to RubiX...</item>
+        <item name="android:fontFamily">@font/prototype</item>
+        <item name="DialogSpotColor">@color/white</item>
+        <item name="DialogSpotCount">7</item>
+    </style>
 </resources>

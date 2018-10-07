@@ -1,11 +1,19 @@
 package com.rubix.org;
 
+
+import android.app.AlertDialog;
+
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
+
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -18,20 +26,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
+
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import dmax.dialog.SpotsDialog;
+
 
 public class MainActivity extends AppCompatActivity implements OverviewFragment.OnFragmentInteractionListener,
         SyllabusFragment.OnFragmentInteractionListener, DTFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener {
     private Toolbar toolbar;
     LinearLayout ll1, ll2, ll3;
     BottomNavigationView navigation;
+
     Animation animation;
+    AlertDialog dialog;
+    Context c;
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
@@ -41,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
 
         animation = AnimationUtils.loadAnimation(this,
                 R.anim.anim_rotate_and_scale);
+
+        c=this;
 
     }
 
@@ -59,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.icon:
-
+new loader().execute();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -82,6 +97,15 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
         setSupportActionBar(toolbar);
          navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
+        dialog = new SpotsDialog.Builder()
+                .setContext(this)
+                .setTheme(R.style.regis)
+                .build();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
 
     }
 
@@ -147,5 +171,75 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
         }, 2000);
 
     }
+
+
+    private class loader extends AsyncTask<String, Integer, String> {
+
+
+
+
+        // Runs in UI before background thread is called
+        @Override
+        protected void onPreExecute() {
+
+
+dialog.setCancelable(false);
+            dialog.show();
+
+
+
+        }
+
+        // This is run in a background thread
+        @Override
+        protected String doInBackground(String... params) {
+
+
+            String res="";
+            try {
+
+
+
+
+                Thread.sleep(3500);
+
+
+
+
+
+
+            } catch (Exception e) {
+
+                Log.d("CSE", String.valueOf(e));
+            }
+
+
+            return res;
+        }
+
+        // This is called from background thread but runs in UI
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+
+            // Do things like update the progress bar
+        }
+
+        // This runs in UI when background thread finishes
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+            browserIntent.setData(Uri.parse("https://google.in"));
+            startActivity(browserIntent);
+
+        }
+    }
+
 
 }

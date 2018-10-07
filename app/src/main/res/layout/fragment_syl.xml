@@ -210,7 +210,19 @@
 
     </LinearLayout>
 
-
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/nextw"
+        android:layout_gravity="center"
+        android:layout_width="110dp"
+        app:layout_constraintCircleAngle="180"
+        app:layout_constraintCircle="@+id/imgCir"
+        app:layout_constraintCircleRadius="208dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnb"
+        android:text="NEXT WEEK"
+        android:elevation="10dp"
+        android:theme="@style/AppTheme.Button"/>
 
 
 

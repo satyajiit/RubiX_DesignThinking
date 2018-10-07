@@ -1,6 +1,7 @@
 package com.rubix.org;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ public class SyllabusFragment extends Fragment {
 
     CardView c1,c2,c3;
     ImageView i1,i2,i3;
+    Button nw;
     int pos=1;
     TextView t1,t2,t3,exp,exp2;
     Animation animationFadeIn,trans,rtr;
@@ -60,6 +63,8 @@ public class SyllabusFragment extends Fragment {
         t2=view.findViewById(R.id.img2);
         t3=view.findViewById(R.id.img3);
 
+        nw=view.findViewById(R.id.nextw);
+
         t1.startAnimation(rtr);
 
 
@@ -70,18 +75,8 @@ public class SyllabusFragment extends Fragment {
         c1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                t1.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
-                i1.setVisibility(View.VISIBLE);
-
-                exp.setText(getResources().getString(R.string.week1));
-                exp2.setText(getResources().getString(R.string.week1s));
-
-                    pos=1;
-                exp.startAnimation(trans);
-                t1.startAnimation(rtr);
-                exp2.startAnimation(animationFadeIn);
-                prs();
-
+                pos=1;
+                intui();
 
             }
         });
@@ -90,17 +85,9 @@ public class SyllabusFragment extends Fragment {
             public void onClick(View v) {
 
 
-                t2.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
-               i2.setVisibility(View.VISIBLE);
                 pos=2;
 
-                exp.setText(getResources().getString(R.string.week2));
-                exp2.setText(getResources().getString(R.string.week2s));
-
-                exp.startAnimation(trans);
-                exp2.startAnimation(animationFadeIn);
-                t2.startAnimation(rtr);
-                prs();
+                intui();
             }
         });
 
@@ -108,20 +95,33 @@ public class SyllabusFragment extends Fragment {
         c3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                t3.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
-                i3.setVisibility(View.VISIBLE);
                 pos=3;
-
-                exp.setText(getResources().getString(R.string.week3));
-                exp2.setText(getResources().getString(R.string.week3s));
-
-                exp.startAnimation(trans);
-                t3.startAnimation(rtr);
-                exp2.startAnimation(animationFadeIn);
-                prs();
-
+               intui();
             }
         });
+
+nw.startAnimation(animationFadeIn);
+
+        nw.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                ++pos;
+                if(pos==3){
+
+
+                }
+                else if(pos==4) {
+                    pos=1;
+                }
+
+            nw.setAnimation(null);
+                intui();
+            }
+        });
+
+
+
+
 
 
         return view;
@@ -182,6 +182,52 @@ public class SyllabusFragment extends Fragment {
         }
 
 
+    }
+
+    public void intui(){
+        if(pos==1){
+            t1.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
+            i1.setVisibility(View.VISIBLE);
+
+            exp.setText(getResources().getString(R.string.week1));
+            exp2.setText(getResources().getString(R.string.week1s));
+            nw.setText("NEXT WEEK");
+            exp.startAnimation(trans);
+            t1.startAnimation(rtr);
+            exp2.startAnimation(animationFadeIn);
+            prs();
+        }
+        else if(pos==2){
+            t2.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
+            i2.setVisibility(View.VISIBLE);
+
+            nw.setText("NEXT WEEK");
+            exp.setText(getResources().getString(R.string.week2));
+            exp2.setText(getResources().getString(R.string.week2s));
+
+            exp.startAnimation(trans);
+            exp2.startAnimation(animationFadeIn);
+            t2.startAnimation(rtr);
+            prs();
+        }
+
+        else if(pos==3){
+
+            nw.setText("< FIRST WEEK");
+
+            t3.setBackground(getResources().getDrawable(R.drawable.cerclebackgroundpink));
+            i3.setVisibility(View.VISIBLE);
+
+
+            exp.setText(getResources().getString(R.string.week3));
+            exp2.setText(getResources().getString(R.string.week3s));
+
+            exp.startAnimation(trans);
+            t3.startAnimation(rtr);
+            exp2.startAnimation(animationFadeIn);
+            prs();
+
+        }
     }
 
 }
