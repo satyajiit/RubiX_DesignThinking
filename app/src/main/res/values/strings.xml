@@ -22,8 +22,12 @@
 
     <string name="week3">TESTING PROTOTYPES AND FEEDBACK FROM USERS</string>
     <string name="week3s">The final stage of the five stage model but in an iterative process.</string>
+    <string name="gal">Gallery</string>
+    <string name="prj">Project</string>
+    <string name="Prize">Prize</string>
 
-
+    <string name="desc"> •	App and add-ons: An app for vending machines and additions required to implement it, it deals with IOT and machine to human interaction, the utility management of the machine and add-ons to implement the proposed idea.
+    \n\n•	Models and prototype: Implementation and feasibility. Working prototype for the app.</string>
 
 
 </resources>

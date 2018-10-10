@@ -37,7 +37,7 @@ import dmax.dialog.SpotsDialog;
 
 
 public class MainActivity extends AppCompatActivity implements OverviewFragment.OnFragmentInteractionListener,
-        SyllabusFragment.OnFragmentInteractionListener, DTFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener {
+        SyllabusFragment.OnFragmentInteractionListener, DTFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener,ChildFragment.OnChildFragmentToActivityInteractionListener,galFrag.OnChildFragmentToActivityInteractionListener {
     private Toolbar toolbar;
     LinearLayout ll1, ll2, ll3;
     BottomNavigationView navigation;
@@ -58,7 +58,15 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
         c=this;
 
     }
+    @Override
+    public void messageFromParentFragmentToActivity(String myString) {
+        Log.i("TAG", myString);
+    }
 
+    @Override
+    public void messageFromChildFragmentToActivity(String myString) {
+        Log.i("TAG", myString);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
