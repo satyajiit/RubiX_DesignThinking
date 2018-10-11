@@ -49,7 +49,7 @@ v=view;
                 R.anim.anim_translate_in);
 
         viewHolder.img_android.startAnimation(rtr);
-        Picasso.get().load(gal_items.get(i).getGal_image_url()).resize(250,187).into(viewHolder.img_android);
+        Picasso.get().load(gal_items.get(i).getGal_image_url()).resize(290,230).into(viewHolder.img_android);
 
 
         viewHolder.img_android.setOnClickListener(new View.OnClickListener() {

@@ -21,7 +21,7 @@ import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
-public class DTFragment extends Fragment implements ChildFragment.OnChildFragmentInteractionListener,galFrag.OnChildFragmentInteractionListener{
+public class DTFragment extends Fragment implements ChildFragment.OnChildFragmentInteractionListener,galFrag.OnChildFragmentInteractionListener,prizeFragment.OnChildFragmentInteractionListener{
     TextView t1,t2,t3;
     Animation rtr;
     int pos=1;
@@ -155,6 +155,11 @@ Context c;
 
         c3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                Fragment prizeFragment = new prizeFragment();
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, prizeFragment).commit();
+
 
               pos=3;
              intui();

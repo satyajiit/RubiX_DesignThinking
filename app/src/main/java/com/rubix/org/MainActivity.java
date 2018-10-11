@@ -37,7 +37,7 @@ import dmax.dialog.SpotsDialog;
 
 
 public class MainActivity extends AppCompatActivity implements OverviewFragment.OnFragmentInteractionListener,
-        SyllabusFragment.OnFragmentInteractionListener, DTFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener,ChildFragment.OnChildFragmentToActivityInteractionListener,galFrag.OnChildFragmentToActivityInteractionListener {
+        SyllabusFragment.OnFragmentInteractionListener, DTFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener,ChildFragment.OnChildFragmentToActivityInteractionListener,galFrag.OnChildFragmentToActivityInteractionListener,prizeFragment.OnChildFragmentToActivityInteractionListener {
     private Toolbar toolbar;
     LinearLayout ll1, ll2, ll3;
     BottomNavigationView navigation;

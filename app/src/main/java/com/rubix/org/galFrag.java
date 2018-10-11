@@ -5,6 +5,7 @@ package com.rubix.org;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,7 +40,23 @@ View v;
             "14",
             "15",
             "16",
+            "17",
+
+            "20",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+
+
+            "13",
+            "14",
+            "15",
+            "16",
             "17"
+
 
     };
 
@@ -60,9 +77,19 @@ View v;
             R.drawable.gal22,
             R.drawable.gal23,
             R.drawable.gal24,
-            R.drawable.gal25
-
-
+            R.drawable.gal25,
+            R.drawable.gal12,
+            R.drawable.gal13,
+            R.drawable.gal14,
+            R.drawable.gal15,
+            R.drawable.gal16,
+            R.drawable.gal17,
+            R.drawable.gal20,
+            R.drawable.ex1,
+            R.drawable.ex2,
+            R.drawable.ex3,
+            R.drawable.ex4,
+            R.drawable.ex5
     };
     @Override
     public void onClick(View v) {
@@ -125,7 +152,8 @@ View v;
     private void initViews(){
         RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.card_recycler_view);
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(v.getContext().getApplicationContext());
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(v.getContext().getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(v.getContext().getApplicationContext(),3);
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList androidVersions = prepareData();
