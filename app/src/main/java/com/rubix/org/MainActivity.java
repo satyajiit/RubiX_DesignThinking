@@ -20,18 +20,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import android.widget.LinearLayout;
+
+
 
 import dmax.dialog.SpotsDialog;
 
@@ -54,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
 
         animation = AnimationUtils.loadAnimation(this,
                 R.anim.anim_rotate_and_scale);
+
+
+
+
 
         c=this;
 
@@ -83,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements OverviewFragment.
         switch (item.getItemId()) {
             case R.id.icon:
 new loader().execute();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -112,6 +118,7 @@ new loader().execute();
                 .setTheme(R.style.regis)
                 .build();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
 
 
 

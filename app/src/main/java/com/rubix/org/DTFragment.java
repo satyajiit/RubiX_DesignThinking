@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.ListView;
+
 import android.widget.TextView;
-import android.widget.Toolbar;
+
 
 import java.util.ArrayList;
 
@@ -173,7 +172,45 @@ Context c;
         });
 
 
-       // initViews();
+        v.setOnTouchListener(new OnSwipeTouchListener(v.getContext()) {
+
+            public void onSwipeRight() {
+                if(pos==3){
+                    pos=2;
+                    Fragment childFragment = new ChildFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_container, childFragment).commit();
+                    intui();
+                }
+
+                else if(pos==2){
+                    pos=1;
+                    Fragment galFrag = new galFrag();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_container, galFrag).commit();
+                    intui();
+                }
+            }
+            public void onSwipeLeft() {
+               if(pos==1){
+                   pos=2;
+                   Fragment childFragment = new ChildFragment();
+                   FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                   transaction.replace(R.id.fragment_container, childFragment).commit();
+                   intui();
+               }
+
+               else if(pos==2){
+                   pos=3;
+                   Fragment prizeFragment = new prizeFragment();
+                   FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                   transaction.replace(R.id.fragment_container, prizeFragment).commit();
+                   intui();
+               }
+
+            }
+
+        });
 
 
         return v;
@@ -262,17 +299,7 @@ Context c;
 
 
     }
-    private void initViews(){
-        RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.card_recycler_view);
-        recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(v.getContext().getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
 
-        ArrayList androidVersions = prepareData();
-        ImagesListAdapter adapter = new ImagesListAdapter(v.getContext().getApplicationContext(),androidVersions);
-        recyclerView.setAdapter(adapter);
-
-    }
     private ArrayList prepareData(){
 
         ArrayList android_version = new ArrayList<>();

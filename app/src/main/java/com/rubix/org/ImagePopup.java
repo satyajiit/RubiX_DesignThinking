@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
+
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
+
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +19,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 
 
-import com.squareup.picasso.Picasso;
 
-import java.io.File;
-
-
-/**
- * Created by Chathura Lakmal on 1/7/17.
- */
 
 public class ImagePopup extends android.support.v7.widget.AppCompatImageView {
     private Context context;

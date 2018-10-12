@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 
 import com.squareup.picasso.Picasso;
@@ -61,8 +60,6 @@ v=view;
                 Drawable drawable = v.getResources().getDrawable(gal_items.get(x).getGal_image_url());
 
 
-               // imagePopup.setBackgroundColor(Color.TRANSPARENT);
-                 // Optional
 
 
                 imagePopup.setImageOnClickClose(true);
@@ -93,13 +90,13 @@ v=view;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-      //  TextView tv_android;
+
         ImageView img_android;
         public ViewHolder(View view) {
             super(view);
 
-            //tv_android = (TextView)view.findViewById(R.id.tv_android);
-            img_android = (ImageView)view.findViewById(R.id.img_android);
+
+            img_android = view.findViewById(R.id.img_android);
         }
     }
 }

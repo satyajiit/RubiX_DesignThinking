@@ -3,10 +3,13 @@ package com.rubix.org;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 
 public class ChildFragment extends Fragment implements View.OnClickListener {
@@ -65,8 +68,15 @@ public class ChildFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_prj, container, false);
-        //view.findViewById(R.id.child_fragment_contact_activity_button).setOnClickListener(this);
-        //view.findViewById(R.id.child_fragment_contact_parent_button).setOnClickListener(this);
+       Animation rtr = AnimationUtils.loadAnimation(view.getContext(),
+                R.anim.anim_translate_in);
+     Animation   fade = AnimationUtils.loadAnimation(view.getContext(),
+                R.anim.fade_in);
+
+        TextView t1=view.findViewById(R.id.exp2);
+        TextView t2=view.findViewById(R.id.exp);
+        t1.startAnimation(rtr);
+        t2.startAnimation(fade);
         return view;
     }
 

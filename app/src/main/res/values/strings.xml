@@ -29,5 +29,21 @@
     <string name="desc"> •	App and add-ons: An app for vending machines and additions required to implement it, it deals with IOT and machine to human interaction, the utility management of the machine and add-ons to implement the proposed idea.
     \n\n•	Models and prototype: Implementation and feasibility. Working prototype for the app.</string>
 
+    <string name="dt2">1. Students will practice a design thinking process for innovation which can leads to some good
+entrepreneurship ideas or projects.\n\n
+2. It will help the students to get in touch with the real world problems.\n\n
+3. Students will become familiar with the process of ideation followed by top institutes across the world.\n\n
+4. Students will learn the techniques of prototyping their ideas.\n\n
+        5. Students will learn how to find opportunities in the real world for entrepreneurship projects.\n\n
+6. Students will be involved in collaborative and creative learning.\n
+</string>
 
+
+    <string name="dtt2">Design thinking is a framework for innovation. Most of the prestigious institutions like Stanford , Harvard and
+top companies like SAP Google etc across the world follow this framework to create different products based
+on their customers needs and requirements. This workshop will help the students to work on real world
+problems and will make them familiar with the entire design thinking process. This workshop will also help the
+students in generating different entrepreneurship ideas and also help them to think on it in a mature manner.
+\n\nThis workshop will be followed by an idea presentation and prototyping challenge based on their 3 week effort.
+The winner of this competition will get a prize. The prize will be decided later on as per the evaluation panel.</string>
 </resources>

@@ -1,9 +1,10 @@
 package com.rubix.org;
 
 import android.content.Context;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,13 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 
+
+
 public class prizeFragment extends Fragment implements View.OnClickListener {
 Animation rtr;
 
     // **************** start interesting part ************************
-
+View v;
     private OnChildFragmentToActivityInteractionListener mActivityListener;
     private OnChildFragmentInteractionListener mParentListener;
 
@@ -83,6 +86,9 @@ Animation rtr;
         i1.startAnimation(rtr);
         i2.startAnimation(rtr);
         i3.startAnimation(rtr);
+
+        v=view;
+
 
         return view;
     }

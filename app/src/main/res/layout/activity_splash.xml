@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    >
+ <ImageView
+        android:id="@+id/app_image_view"
+        android:layout_width="286dp"
+
+        android:layout_height="286dp"
+        android:layout_centerHorizontal="true"
+
+        android:src="@drawable/dt" />
+
+    <TextView
+        android:id="@+id/app_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_image_view"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+            android:fontFamily="@font/prototype"
+        android:text="DESIGN THINKING 2.0"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+
+        android:gravity="center"
+        android:textStyle="bold" />
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/splash_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_name_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        app:indicatorName="BallSpinFadeLoaderIndicator" />
+
+</RelativeLayout>

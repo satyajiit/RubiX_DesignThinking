@@ -4,23 +4,22 @@ package com.rubix.org;
 
 import android.content.Context;
 
-import android.graphics.Color;
+
 import android.os.Bundle;
-import android.os.Handler;
+
 import android.support.v4.app.Fragment;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 
 import android.util.Log;
-import android.view.KeyEvent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
