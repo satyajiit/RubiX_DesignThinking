@@ -1,5 +1,9 @@
 # DesignThinking 2.0
 
+Download The App :
+https://satyajiit.xyz/project-details.php?project=Design_Thinking&type=apk
+
+
 Author :
 Satyajit Pradhan
 
